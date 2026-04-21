@@ -7,7 +7,10 @@ struct ContentView: View {
             .font(.largeTitle)
             .fontWeight(.bold)
         MultiDatePicker("Workout Date Selector", selection: $selectedDates)
-        
+        Button("→") {
+            print("Tapped!")
+        }
+        .font(.largeTitle)
         
     }
 }
