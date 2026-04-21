@@ -12,5 +12,10 @@ struct ContentView: View {
         }
         .font(.largeTitle)
         
+        NavigationStack{
+            NavigationLink("→", destination: PRView())
+                .font(.largeTitle)
+        }
+        
     }
 }
