@@ -10,5 +10,7 @@ struct ContentView: View {
                 .fontWeight(.bold)
             MultiDatePicker("Workout Date Selector", selection: $selectedDates, in: Date()...)
         }
+        .font(.largeTitle)
+        
     }
 }
