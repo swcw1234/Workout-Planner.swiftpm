@@ -13,6 +13,7 @@ struct AddAssignmentView: View {
     
     @State private var workout = ""
     @State private var pr = ""
+    @State private var selectedDate = Date()
     
     var body: some View {
         VStack {
