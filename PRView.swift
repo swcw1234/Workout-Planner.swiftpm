@@ -1,13 +1,24 @@
 import SwiftUI
  
 struct PRView: View {
+    @State private var assignments: [String] = []
     var body: some View {
-        Text ("Personal Record")
-        Spacer()
-            .font(.largeTitle)
-            .bold()
-            
+        NavigationView {
+            List(assignments, id: \.self) { item in
+                Text(item)
+            }
+            .navigationTitle("Assignments")
+            .toolbar {
+                NavigationLink(destination: AddAssignmentView(assignments: $assignments)) {
+                    Image(systemName: "plus")
+                    Text ("Personal Record")
+                    Spacer()
+                        .font(.largeTitle)
+                        .bold()
+                    
+                }
+            }
+        }
     }
 }
-
 
