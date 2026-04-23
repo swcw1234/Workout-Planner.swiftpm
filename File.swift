@@ -27,7 +27,7 @@ struct AddAssignmentView: View {
                 .padding()
                 .keyboardType(.numberPad)
             
-            Button("Add Assignment") {
+            Button("Add PR") {
                 let newAssignment = "\(workout): \(pr)"
                 assignments.append(newAssignment)
                 
