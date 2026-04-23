@@ -27,6 +27,7 @@ struct AddAssignmentView: View {
     
     var body: some View {
         VStack {
+          
             
             TextField("workout", text: $workout)
                 .textFieldStyle(.roundedBorder)

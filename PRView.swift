@@ -3,6 +3,11 @@ import SwiftUI
 struct PRView: View {
     @State private var assignments: [String] = []
     var body: some View {
+        
+        Button("Request Notfication Acesses") {
+            requestPermission()
+        }
+        
         NavigationView {
             List(assignments, id: \.self) { item in
                 Text(item)
