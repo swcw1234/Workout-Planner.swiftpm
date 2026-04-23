@@ -12,9 +12,10 @@ struct ContentView: View {
         }
         .font(.largeTitle)
         
-        NavigationStack{
-            NavigationLink("→", destination: PRView())
-                .font(.largeTitle)
+        Button {
+            
+        }label: {
+            Label("Create Workout Plan", systemImage: "square.and.arrow.down")
         }
         
     }
