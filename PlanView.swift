@@ -9,6 +9,8 @@ import SwiftUI
 
 struct PlanView: View {
     var body: some View {
-        
+       NavigationStack {
+            NavigationLink("->", destination: PRView())
+        }
     }
 }
