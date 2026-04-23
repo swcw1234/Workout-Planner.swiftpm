@@ -36,7 +36,6 @@ struct AddAssignmentView: View {
             TextField("pr", text: $pr)
                 .textFieldStyle(.roundedBorder)
                 .padding()
-                .keyboardType(.numberPad)
             
             Button("Add PR") {
                 let newAssignment = "\(workout): \(pr)"
