@@ -13,7 +13,7 @@ struct ContentView: View {
                 MultiDatePicker("Workout Date Selector", selection: $selectedDates, in: Date()...)
 
                 NavigationLink {
-                    PlanView ()
+PRView ()
                 } label: {
                     Label("Create Workout Plan", systemImage: "square.and.arrow.down")
                 }
