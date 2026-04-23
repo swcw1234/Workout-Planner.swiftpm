@@ -10,13 +10,18 @@ struct ContentView: View {
                 .fontWeight(.bold)
             MultiDatePicker("Workout Date Selector", selection: $selectedDates, in: Date()...)
         }
-        .font(.largeTitle)
         
-        Button {
+        
+        NavigationStack{
             
-        }label: {
-            Label("Create Workout Plan", systemImage: "square.and.arrow.down")
+            Image(systemName:"square.and.arrow.down")
+                .resizable()
+                .frame(width: 100, height: 100)
+            NavigationLink("Create Workout Plan", destination: PRView())
+                .font(.largeTitle)
         }
+       
         
     }
 }
+
