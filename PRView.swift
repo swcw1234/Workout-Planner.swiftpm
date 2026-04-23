@@ -7,7 +7,7 @@ struct PRView: View {
             List(assignments, id: \.self) { item in
                 Text(item)
             }
-            .navigationTitle("Assignments")
+            .navigationTitle("personal records")
             .toolbar {
                 NavigationLink(destination: AddAssignmentView(assignments: $assignments)) {
                     Image(systemName: "plus")
