@@ -21,28 +21,31 @@ struct AddAssignmentView: View {
     
     @Binding var assignments: [String]
     
-    @State private var workout = ""
-    @State private var pr = ""
+    @State var workout = ""
+    @State var pr = ""
     @State private var selectedDate = Date()
     
     var body: some View {
         VStack {
-          
-            
-            TextField("workout", text: $workout)
+
+            TextField("workout", text: $workout){
+            }
                 .textFieldStyle(.roundedBorder)
                 .padding()
             
-            TextField("pr", text: $pr)
+            TextField("pr", text: $pr){
+            }
                 .textFieldStyle(.roundedBorder)
                 .padding()
             
-            Button("Add PR") {
+            Button("Save PR") {
+                
                 let newAssignment = "\(workout): \(pr)"
                 assignments.append(newAssignment)
-                
+
                 workout = ""
                 pr = ""
+                UserDefaults.standard.set(assignments, forKey: "working")
             }
             
             Spacer()

@@ -4,6 +4,8 @@ import DataDetection
 struct ContentView: View {
     @State private var selectedDates: Set<DateComponents> = []
     var body: some View {
+        
+        
         NavigationStack {
             VStack(spacing: 16) {
                 Text("Select a Date(s) You Want To Workout On")
@@ -18,7 +20,7 @@ PRView ()
                     Label("Create Workout Plan", systemImage: "square.and.arrow.down")
                 }
             }
-            .padding()
+            
         }
     }
 }
