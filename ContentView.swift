@@ -4,12 +4,12 @@ import DataDetection
 struct ContentView: View {
     @State private var selectedDates: Set<DateComponents> = []
     var body: some View {
-        Text("Hello")
+      
         
         NavigationStack {
             VStack(spacing: 16) {
                 Text("Select a Date(s) You Want To Workout On")
-                    .font(.largeTitle)
+                    .font(.system(size: 24, weight: .bold, design: .serif))
                     .fontWeight(.bold)
 
                 MultiDatePicker("Workout Date Selector", selection: $selectedDates, in: Date()...)

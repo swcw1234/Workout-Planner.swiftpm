@@ -27,7 +27,7 @@ struct AddAssignmentView: View {
     
     var body: some View {
         VStack {
-Text("VERY GLITHCY")
+
             TextField("workout", text: $workout){
             }
                 .textFieldStyle(.roundedBorder)
@@ -40,8 +40,8 @@ Text("VERY GLITHCY")
             
             Button("Save PR") {
                 
-                let newAssignment = "\(workout): \(pr)"
-                assignments.append(newAssignment)
+                let newPR = "\(workout): \(pr)"
+                assignments.append(newPR)
 
                 workout = ""
                 pr = ""
@@ -50,7 +50,8 @@ Text("VERY GLITHCY")
             
             Spacer()
         }
-        .navigationTitle("New Assignment")
+        .navigationTitle("New Personal records")
+        .font(.system(size: 24, weight: .bold, design: .serif))
     }
     
 }

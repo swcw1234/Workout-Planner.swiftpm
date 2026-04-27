@@ -6,6 +6,7 @@ struct PRView: View {
         
         Button("Request Notfication Acesses") {
             requestPermission()
+               
         }
         
         NavigationView {
