@@ -27,6 +27,8 @@ struct AddWorkoutView: View {
     
     var body: some View {
         VStack {
+            
+            DatePicker ("", selection: $selectedDate)
 
             TextField("workout", text: $workout)
                
@@ -39,12 +41,16 @@ struct AddWorkoutView: View {
                 .padding()
             
             Button("Save PR") {
-                
-                let newPR = "\(workout): \(pr)"
+                let formatter = DateFormatter()
+                formatter.dateStyle = .short
+                formatter.timeStyle = .short
+                let dateTime = formatter.string(from: selectedDate)
+                let newPR = "\(workout): \(pr) (\(dateTime))"
                 assignments.append(newPR)
 
                 workout = ""
                 pr = ""
+                selectedDate = Date()
             }
             
             Spacer()
