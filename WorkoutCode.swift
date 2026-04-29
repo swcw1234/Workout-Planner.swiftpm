@@ -40,7 +40,7 @@ struct AddWorkoutView: View {
             
             Button("Save PR") {
                 
-                let newPR = "\($workout): \($pr)"
+                let newPR = "\(workout): \(pr)"
                 assignments.append(newPR)
 
                 workout = ""
