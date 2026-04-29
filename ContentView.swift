@@ -2,7 +2,6 @@ import SwiftUI
 import DataDetection
 
 struct ContentView: View {
-    @Binding var Dataworkout: WorkoutData
     @State private var selectedDates: Set<DateComponents> = []
     var body: some View {
       
@@ -16,7 +15,7 @@ struct ContentView: View {
                 MultiDatePicker("Workout Date Selector", selection: $selectedDates, in: Date()...)
 
                 NavigationLink {
-                    PRView (Theworkdata: $Dataworkout)
+                    PRView ()
                 } label: {
                     Label("Create Workout Plan", systemImage: "square.and.arrow.down")
                 }

@@ -20,32 +20,31 @@ func requestPermission() {
 struct AddWorkoutView: View {
     
     @Binding var assignments: [String]
-    @Binding var myWorkout: WorkoutData
-//    @State var workout = ""
-//    @State var pr = ""
+   
+    @State var workout = ""
+    @State var pr = ""
     @State private var selectedDate = Date()
     
     var body: some View {
         VStack {
 
-            TextField("workout", text: $myWorkout.workout){
-            }
+            TextField("workout", text: $workout)
+               
                 .textFieldStyle(.roundedBorder)
                 .padding()
             
-            TextField("pr", text: $myWorkout.pr){
-            }
+            TextField("pr", text: $pr)
+            
                 .textFieldStyle(.roundedBorder)
                 .padding()
             
             Button("Save PR") {
                 
-                let newPR = "\($myWorkout.workout): \($myWorkout.pr)"
+                let newPR = "\($workout): \($pr)"
                 assignments.append(newPR)
 
-                myWorkout.workout = ""
-                myWorkout.pr = ""
-                UserDefaults.standard.set(assignments, forKey: "working")
+                workout = ""
+                pr = ""
             }
             
             Spacer()
