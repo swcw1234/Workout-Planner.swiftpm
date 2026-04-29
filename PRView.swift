@@ -2,6 +2,7 @@ import SwiftUI
  
 struct PRView: View {
     @State private var assignments: [String] = []
+    @Binding var Theworkdata: WorkoutData
     var body: some View {
         
         Button("Request Notfication Acesses") {
@@ -15,7 +16,7 @@ struct PRView: View {
             }
             .navigationTitle("Personal Records")
             .toolbar {
-                NavigationLink(destination: AddAssignmentView(assignments: $assignments)) {
+                NavigationLink(destination: AddWorkoutView(assignments: $assignments, myWorkout: $Theworkdata)) {
                     Image(systemName: "plus")
                     Text ("Personal Record")
                     Spacer()
