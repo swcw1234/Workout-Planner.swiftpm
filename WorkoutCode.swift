@@ -41,12 +41,12 @@ struct AddWorkoutView: View {
                     
                     DatePicker ("", selection: $selectedDate)
                     
-                    TextField("workout", text: $workout)
+                    TextField("Workout", text: $workout)
                     
                         .textFieldStyle(.roundedBorder)
                         .padding()
                     
-                    TextField("pr", text: $pr)
+                    TextField("PR", text: $pr)
                     
                         .textFieldStyle(.roundedBorder)
                         .padding()
@@ -67,7 +67,7 @@ struct AddWorkoutView: View {
                     
                     Spacer()
                 }
-                .navigationTitle("New Personal records")
+                .navigationTitle("New Personal Record")
                 .font(.system(size: 24, weight: .bold, design: .serif))
                 .foregroundColor(.black)
                 
