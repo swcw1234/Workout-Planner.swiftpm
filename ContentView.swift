@@ -16,6 +16,9 @@ struct ContentView: View {
                         .foregroundStyle(.white)
                     
                     DatePicker ("", selection: $selectedTime, displayedComponents: [.hourAndMinute])
+                        .background(.white)
+                        .frame(width: 100, height: 50)
+                        .cornerRadius(15)
 
                     MultiDatePicker("Workout Date Selector", selection:
                         $selectedDates, in: Date()...)
