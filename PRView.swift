@@ -35,7 +35,7 @@ struct PRView: View {
                             Spacer()
                                 .font(.largeTitle)
                                 .bold()
-                                Color.gray.ignoresSafeArea()
+                               
                                 VStack(spacing: 16) {
                                     
                                 }
