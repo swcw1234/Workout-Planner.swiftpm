@@ -13,14 +13,18 @@ struct ContentView: View {
                     Text("Select a Date(s) You Want To Workout On")
                         .font(.system(size: 24, weight: .bold, design: .serif))
                         .fontWeight(.bold)
+                        .foregroundStyle(.white)
                     
                     DatePicker ("", selection: $selectedTime, displayedComponents: [.hourAndMinute])
 
                     MultiDatePicker("Workout Date Selector", selection:
-                                        $selectedDates, in: Date()...)
+                        $selectedDates, in: Date()...)
                         .onChange(of: selectedDates) { newValue in
                             saveSelectedDates(newValue)
                         }
+                        .background(.white)
+                        .cornerRadius(15)
+
 
                     NavigationLink {
                         PRView ()
