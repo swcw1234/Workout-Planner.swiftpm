@@ -13,7 +13,11 @@ struct PRView: View {
                 }
                 NavigationView {
                     List(assignments, id: \.self) { item in
-                        Text(item)
+                         Text(item)
+                        Button("remove"){
+                            assignments.remove(atOffsets: .init(integer: assignments.firstIndex(of: item)! ))
+                        }
+                        
                     }
                     .navigationTitle("Personal Records")
                     .toolbar {
@@ -29,6 +33,7 @@ struct PRView: View {
                                 }
                             }
                         }
+                    
                     }
                 }
                 
