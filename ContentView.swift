@@ -3,6 +3,7 @@ import DataDetection
 
 struct ContentView: View {
     @State private var selectedDates: Set<DateComponents> = []
+    @State private var selectedTime = Date()
     var body: some View {
         
         NavigationStack {
@@ -12,6 +13,8 @@ struct ContentView: View {
                     Text("Select a Date(s) You Want To Workout On")
                         .font(.system(size: 24, weight: .bold, design: .serif))
                         .fontWeight(.bold)
+                    
+                    DatePicker ("", selection: $selectedTime, displayedComponents: [.hourAndMinute])
 
                     MultiDatePicker("Workout Date Selector", selection:
                                         $selectedDates, in: Date()...)

@@ -10,8 +10,7 @@ import UserNotifications
 
 func requestPermission() {
     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-        if let error = error {
-            print("Notification permission error: \(error)")
+    
             
                 
            //Will Come Back Too
@@ -20,17 +19,15 @@ func requestPermission() {
            // dateComponents.year = selectedDates.first
            // dateComponents.month = selectedDates
            // dateComponents.day = selectedDates
-           // dateComponents.hour = 12
-           // dateComponents.minute = 0
+           // dateComponents.hour = selectedTime
+           // dateComponents.minute = selectedTime
         }
-        print("Permission granted: \(granted)")
     }
-}
+
 
 struct AddWorkoutView: View {
     
     @Binding var assignments: [String]
-    
     @State var workout = ""
     @State var pr = ""
     @State private var selectedDate = Date()
