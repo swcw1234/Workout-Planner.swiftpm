@@ -64,6 +64,12 @@ struct AddWorkoutView: View {
                         pr = ""
                         selectedDate = Date()
                     }
+                        .foregroundStyle(Color.white)
+                        .bold()
+                        .background(.blue)
+                        .cornerRadius(15)
+                        .shadow(radius: 5)
+                        .frame(width: 250, height: 20)
                     
                     Spacer()
                 }
