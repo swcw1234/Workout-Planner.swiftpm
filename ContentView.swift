@@ -7,13 +7,14 @@ struct ContentView: View {
         
         NavigationStack {
             ZStack {
-                Color.white.ignoresSafeArea()
+                Color.cyan.ignoresSafeArea()
                 VStack(spacing: 16) {
                     Text("Select a Date(s) You Want To Workout On")
                         .font(.system(size: 24, weight: .bold, design: .serif))
                         .fontWeight(.bold)
 
-                    MultiDatePicker("Workout Date Selector", selection: $selectedDates, in: Date()...)
+                    MultiDatePicker("Workout Date Selector", selection:
+                                        $selectedDates, in: Date()...)
                         .onChange(of: selectedDates) { newValue in
                             saveSelectedDates(newValue)
                         }
@@ -22,6 +23,7 @@ struct ContentView: View {
                         PRView ()
                     } label: {
                         Label("Create Workout Plan", systemImage: "square.and.arrow.down")
+                            .foregroundColor(.black)
                     }
                 }
             }
@@ -38,6 +40,7 @@ struct ContentView: View {
         let encoder = JSONEncoder()
         if let data = try? encoder.encode(Array(set)) {
             UserDefaults.standard.set(data, forKey: "selectedDates")
+               
         }
     }
 }

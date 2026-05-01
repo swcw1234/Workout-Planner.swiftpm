@@ -37,7 +37,7 @@ struct AddWorkoutView: View {
     
     var body: some View {
         ZStack {
-            Color.blue.ignoresSafeArea()
+            Color.cyan.ignoresSafeArea()
             VStack(spacing: 16) {
                 VStack {
                     
@@ -53,15 +53,16 @@ struct AddWorkoutView: View {
                     
                         .textFieldStyle(.roundedBorder)
                         .padding()
-                    
-                    Button("Save PR") {
+                       
+                    Button("Save PR")
+                        {
                         let formatter = DateFormatter()
                         formatter.dateStyle = .short
                         formatter.timeStyle = .short
                         let dateTime = formatter.string(from: selectedDate)
                         let newPR = "\(workout): \(pr) (\(dateTime))"
                         assignments.append(newPR)
-                        
+                                
                         workout = ""
                         pr = ""
                         selectedDate = Date()
@@ -71,6 +72,7 @@ struct AddWorkoutView: View {
                 }
                 .navigationTitle("New Personal records")
                 .font(.system(size: 24, weight: .bold, design: .serif))
+                .foregroundColor(.black)
                 
             }
             

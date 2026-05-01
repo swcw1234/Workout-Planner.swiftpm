@@ -4,21 +4,29 @@ struct PRView: View {
     @State private var assignments: [String] = []
     var body: some View {
         ZStack {
-            Color.gray.ignoresSafeArea()
+            Color.cyan.ignoresSafeArea()
             VStack(spacing: 16) {
-                
+               
                 Button("Request Notfication Acesses") {
                     requestPermission()
+                       
+                        
                     
                 }
+                .foregroundColor(.black)
                 NavigationView {
                     List(assignments, id: \.self) { item in
                          Text(item)
+                            .foregroundColor(.black)
                         Button("remove"){
+                            
                             assignments.remove(atOffsets: .init(integer: assignments.firstIndex(of: item)! ))
+                                
+                               
                         }
                         
                     }
+                    .foregroundColor(.black)
                     .navigationTitle("Personal Records")
                     .toolbar {
                         NavigationLink(destination: AddWorkoutView(assignments: $assignments)) {
