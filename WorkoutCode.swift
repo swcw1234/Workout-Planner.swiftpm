@@ -12,6 +12,16 @@ func requestPermission() {
     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
         if let error = error {
             print("Notification permission error: \(error)")
+            
+                
+           //Will Come Back Too
+            
+           // var dateComponents = DateComponents()
+           // dateComponents.year = selectedDates.first
+           // dateComponents.month = selectedDates
+           // dateComponents.day = selectedDates
+           // dateComponents.hour = 12
+           // dateComponents.minute = 0
         }
         print("Permission granted: \(granted)")
     }
