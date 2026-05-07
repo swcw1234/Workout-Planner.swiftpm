@@ -47,7 +47,7 @@ struct ContentView: View {
                         .fontWeight(.bold)
                         .foregroundStyle(.white)
                     
-                    DatePicker ("", selection: $selectedTime, displayedComponents: [.hourAndMinute])
+                    DatePicker ("", selection: $selectedTime, in: Date ()..., displayedComponents: [.hourAndMinute])
                         .background(.white)
                         .frame(width: 90, height: 50)
                         .cornerRadius(15)
