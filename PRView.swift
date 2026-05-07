@@ -6,20 +6,6 @@ struct PRView: View {
         ZStack {
             Color.cyan.ignoresSafeArea()
             VStack(spacing: 16) {
-               
-                Button("Request Notfication Acesses") {
-                    requestPermission()
-                }
-                .foregroundStyle(Color.white)
-                .bold()
-                .background(.blue)
-                .cornerRadius(15)
-                .shadow(radius: 5)
-                .frame(width: 250, height: 20)
-                
-                
-                
-                .foregroundColor(.black)
                 NavigationView {
                     List(assignments, id: \.self) { item in
                          Text(item)

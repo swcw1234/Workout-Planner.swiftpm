@@ -8,22 +8,6 @@
 import SwiftUI
 import UserNotifications
 
-func requestPermission() {
-    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-    
-            
-                
-           //Will Come Back Too
-            
-           // var dateComponents = DateComponents()
-           // dateComponents.year = selectedDates.first
-           // dateComponents.month = selectedDates
-           // dateComponents.day = selectedDates
-           // dateComponents.hour = selectedTime
-           // dateComponents.minute = selectedTime
-        }
-    }
-
 
 struct AddWorkoutView: View {
     

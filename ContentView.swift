@@ -1,9 +1,41 @@
 import SwiftUI
 import DataDetection
+import UserNotifications
 
 struct ContentView: View {
     @State private var selectedDates: Set<DateComponents> = []
     @State private var selectedTime = Date()
+    func requestPermission() {
+        
+        let WorkoutTime = selectedTime
+        let WorkoutDates = selectedDates
+
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            guard error == nil, granted else { return }
+
+            let timeComponents = Calendar.current.dateComponents([.hour, .minute], from: WorkoutTime)
+            let hour = timeComponents.hour
+            let minute = timeComponents.minute
+
+            for day in WorkoutDates {
+                var components = DateComponents()
+                components.calendar = Calendar.current
+                components.timeZone = TimeZone.current
+                components.year = day.year
+                components.month = day.month
+                components.day = day.day
+                components.hour = hour
+                components.minute = minute
+
+                let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
+                let content = UNMutableNotificationContent()
+                content.title = "Workout Reminder"
+                content.body = "Get Moving!"
+                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+            }
+        }
+    }
     var body: some View {
         
         NavigationStack {
@@ -17,7 +49,7 @@ struct ContentView: View {
                     
                     DatePicker ("", selection: $selectedTime, displayedComponents: [.hourAndMinute])
                         .background(.white)
-                        .frame(width: 100, height: 50)
+                        .frame(width: 90, height: 50)
                         .cornerRadius(15)
 
                     MultiDatePicker("Workout Date Selector", selection:
@@ -59,3 +91,4 @@ struct ContentView: View {
         }
     }
 }
+
