@@ -9,30 +9,28 @@ struct ContentView: View {
         
         let WorkoutTime = selectedTime
         let WorkoutDates = selectedDates
-
+        
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             guard error == nil, granted else { return }
-
+            
             let timeComponents = Calendar.current.dateComponents([.hour, .minute], from: WorkoutTime)
-            let hour = timeComponents.hour
-            let minute = timeComponents.minute
-
-            for day in WorkoutDates {
+            _ = timeComponents.hour
+            _ = timeComponents.minute
+            func scheduleWeeklyReminder(weekday: Int, hour: Int, minute: Int) {
                 var components = DateComponents()
                 components.calendar = Calendar.current
                 components.timeZone = TimeZone.current
-                components.year = day.year
-                components.month = day.month
-                components.day = day.day
+                components.weekday = weekday
                 components.hour = hour
                 components.minute = minute
-
-                let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
+                
+                let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
                 let content = UNMutableNotificationContent()
                 content.title = "Workout Reminder"
                 content.body = "Get Moving!"
+                
                 let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-                UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                UNUserNotificationCenter.current().add(request)
             }
         }
     }
@@ -51,20 +49,20 @@ struct ContentView: View {
                         .background(.white)
                         .frame(width: 90, height: 50)
                         .cornerRadius(15)
-
+                    
                     MultiDatePicker("Workout Date Selector", selection:
-                        $selectedDates, in: Date()...)
-                        .onChange(of: selectedDates) { newValue in
-                            saveSelectedDates(newValue)
-                        }
-                        .background(.white)
-                        .cornerRadius(15)
-
-
+                                        $selectedDates, in: Date()...)
+                    .onChange(of: selectedDates) { newValue in
+                        saveSelectedDates(newValue)
+                    }
+                    .background(.white)
+                    .cornerRadius(15)
+                    
+                    
                     NavigationLink {
                         PRView ()
                     } label: {
-                        Label("Create Workout Plan", systemImage: "square.and.arrow.down")
+                        Label("Go To PR Records", systemImage: "square.and.arrow.down")
                             .foregroundColor(.white)
                     }
                     .bold()
@@ -72,9 +70,17 @@ struct ContentView: View {
                     .cornerRadius(15)
                     .shadow(radius: 5)
                     .frame(width: 250, height: 20)
+                    
+                    Button ("Get Notfication Access") {
+                        requestPermission()
+                        print(selectedDates)
+                        print(selectedTime)
+                    }
+                    .buttonStyle(.borderedProminent)
                 }
             }
         }
+        
         .onAppear {
             if let data = UserDefaults.standard.data(forKey: "selectedDates"),
                let decoded = try? JSONDecoder().decode([DateComponents].self, from: data) {
