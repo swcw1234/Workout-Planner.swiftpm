@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  Workout Planner
-//
-//  Created by Sean M. Wysocki on 4/23/26.
-//
-
 import SwiftUI
 import UserNotifications
 

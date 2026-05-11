@@ -1,41 +1,46 @@
 import SwiftUI
- 
+
 struct PRView: View {
     @State private var assignments: [String] = []
+    private let assignmentsKey = "PRAssignments"
+
     var body: some View {
         ZStack {
             Color.cyan.ignoresSafeArea()
             VStack(spacing: 16) {
                 NavigationView {
-                    List(assignments, id: \.self) { item in
-                         Text(item)
-                            .foregroundColor(.black)
-                        Button("remove"){
-                            assignments.remove(atOffsets: .init(integer: assignments.firstIndex(of: item)! ))
+                    List {
+                        ForEach(assignments, id: \.self) { item in
+                            Text(item)
+                                .foregroundColor(.black)
                         }
-                        .foregroundStyle(Color.red)
-                        .bold()
+                        .onDelete { indexSet in
+                            assignments.remove(atOffsets: indexSet)
+                        }
                     }
                     .foregroundColor(.black)
                     .navigationTitle("Personal Records")
                     .toolbar {
-                        NavigationLink(destination: AddWorkoutView(assignments: $assignments)) {
-                            Image(systemName: "plus")
-                            Text ("Personal Record")
-                            Spacer()
-                                .font(.largeTitle)
-                                .bold()
-                               
-                                VStack(spacing: 16) {
-                                    
-                                }
+                        ToolbarItem(placement: .navigationBarLeading) {
+                        }
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            NavigationLink(destination: AddWorkoutView(assignments: $assignments)) {
+                                Label("Personal Record", systemImage: "plus")
                             }
                         }
-                    
                     }
                 }
-                
             }
         }
+        .onAppear {
+            if let data = UserDefaults.standard.data(forKey: assignmentsKey),
+               let saved = try? JSONDecoder().decode([String].self, from: data) {
+                assignments = saved
+            }
+        }
+        .onChange(of: assignments) { newValue in
+            let data = try? JSONEncoder().encode(newValue)
+            UserDefaults.standard.set(data, forKey: assignmentsKey)
+        }
     }
-
+}
