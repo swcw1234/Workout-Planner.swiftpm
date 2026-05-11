@@ -8,7 +8,7 @@ struct ContentView: View {
     func requestPermission() {
         
         let WorkoutTime = selectedTime
-        let WorkoutDates = selectedDates
+        _ = selectedDates
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             guard error == nil, granted else { return }
