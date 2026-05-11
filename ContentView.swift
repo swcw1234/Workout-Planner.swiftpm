@@ -50,51 +50,59 @@ struct ContentView: View {
                         .frame(width: 90, height: 50)
                         .cornerRadius(15)
                     
-                    MultiDatePicker("Workout Date Selector", selection:
-                                        $selectedDates, in: Date()...)
-                    .onChange(of: selectedDates) { newValue in
-                        saveSelectedDates(newValue)
-                    }
-                    .background(.white)
-                    .cornerRadius(15)
+                    NavigationLink ("->") {
+                        File()
+                        }
                     
-                    
-                    NavigationLink {
-                        PRView ()
-                    } label: {
-                        Label("Go To PR Records", systemImage: "square.and.arrow.down")
-                            .foregroundColor(.white)
+                        .font(.largeTitle)
+                        .foregroundColor(.black)
+                        
+                        
+                        MultiDatePicker("Workout Date Selector", selection:
+                                            $selectedDates, in: Date()...)
+                        .onChange(of: selectedDates) { newValue in
+                            saveSelectedDates(newValue)
+                        }
+                        .background(.white)
+                        .cornerRadius(15)
+                        
+                        
+                        NavigationLink {
+                            PRView ()
+                        } label: {
+                            Label("Go To PR Records", systemImage: "square.and.arrow.down")
+                                .foregroundColor(.white)
+                        }
+                        .bold()
+                        .background(.blue)
+                        .cornerRadius(15)
+                        .shadow(radius: 5)
+                        .frame(width: 250, height: 20)
+                        
+                        Button ("Get Notfication Access") {
+                            requestPermission()
+                            print(selectedDates)
+                            print(selectedTime)
+                        }
+                        .buttonStyle(.borderedProminent)
                     }
-                    .bold()
-                    .background(.blue)
-                    .cornerRadius(15)
-                    .shadow(radius: 5)
-                    .frame(width: 250, height: 20)
-                    
-                    Button ("Get Notfication Access") {
-                        requestPermission()
-                        print(selectedDates)
-                        print(selectedTime)
-                    }
-                    .buttonStyle(.borderedProminent)
+                }
+            }
+            
+            .onAppear {
+                if let data = UserDefaults.standard.data(forKey: "selectedDates"),
+                   let decoded = try? JSONDecoder().decode([DateComponents].self, from: data) {
+                    selectedDates = Set(decoded)
                 }
             }
         }
         
-        .onAppear {
-            if let data = UserDefaults.standard.data(forKey: "selectedDates"),
-               let decoded = try? JSONDecoder().decode([DateComponents].self, from: data) {
-                selectedDates = Set(decoded)
+        private func saveSelectedDates(_ set: Set<DateComponents>) {
+            let encoder = JSONEncoder()
+            if let data = try? encoder.encode(Array(set)) {
+                UserDefaults.standard.set(data, forKey: "selectedDates")
+                
             }
         }
     }
-    
-    private func saveSelectedDates(_ set: Set<DateComponents>) {
-        let encoder = JSONEncoder()
-        if let data = try? encoder.encode(Array(set)) {
-            UserDefaults.standard.set(data, forKey: "selectedDates")
-               
-        }
-    }
-}
 

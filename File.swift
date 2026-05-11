@@ -5,4 +5,10 @@
 //  Created by Sean M. Wysocki on 5/11/26.
 //
 
-import Foundation
+import SwiftUI
+
+struct File: View {
+    var body: some View {
+        
+    }
+}
