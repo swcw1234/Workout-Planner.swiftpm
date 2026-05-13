@@ -8,7 +8,16 @@
 import SwiftUI
 
 struct File: View {
+    @State var exercies: [String]  = ["PUSHUPS", "SQUATES","LUNGES","BENCH PRESSES","PULLUPS","CARDIO", "LATERAL RAISES", "DEADLIFTS", "HAMMER CURLS", "JUMMPING JACKS", "DUMBELL ROWS", "OVERHEAD PRESS", "BENT OVER ROWS"]
+    
+    @State var dice6 = [1,2,3,4,5,6]
     var body: some View {
+        Button("New Exercise"){
+                    exercies = exercies.shuffled()
+        }
+        Text("Your Exercise for today is:")
+        Text(exercies.randomElement()!)
+        
         
     }
 }
