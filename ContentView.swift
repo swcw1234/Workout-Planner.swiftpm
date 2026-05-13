@@ -53,10 +53,12 @@ struct ContentView: View {
                     NavigationLink ("->") {
                         File()
                         }
-                    
+                    .foregroundStyle(.white)
                         .font(.largeTitle)
-                        .foregroundColor(.black)
-                        
+                        .bold()
+                        .background(.blue)
+                        .cornerRadius(15)
+                        .scaledToFit()
                         
                         MultiDatePicker("Workout Date Selector", selection:
                                             $selectedDates, in: Date()...)
