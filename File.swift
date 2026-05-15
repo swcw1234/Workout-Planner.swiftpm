@@ -13,12 +13,11 @@ struct File: View {
     @State var Edice10 = ["8","6","5","10","7","9","10","4"]
     @State var Ndice15 = ["12","14","15","15","3","16","8","17","8","9","10","11","12","13","15","14"]
     @State var Hdice35 = ["22","21","12","4","5","12","24","13","16","18","17","18","19","20","10","11","12","13","15","14","23","25","26","27,","28","29","34","31","32","35"]
-    @State var VHdice1055 = ["125","150","130","151", "101","130","130","155","50, 63","126","73","68","73", "100","1055" ]
+    @State var VHdice1055 = ["125","150","130","151", "101","130","130","155","50","63","126","73","68","73", "100","1055" ]
     @State var dice = [""]
     var body: some View {
         ZStack {
-            Color.cyan.ignoresSafeArea()
-            VStack {
+            Color.cyan.ignoresSafeArea().background(Color.cyan.gradient);            VStack {
                 Button("Roll Exercise"){
                     exercies = exercies.shuffled()
                 }

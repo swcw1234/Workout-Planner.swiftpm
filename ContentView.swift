@@ -38,7 +38,7 @@ struct ContentView: View {
         
         NavigationStack {
             ZStack {
-                Color.cyan.ignoresSafeArea()
+                Color.cyan.ignoresSafeArea().background(Color.cyan.gradient)
                 VStack(spacing: 16) {
                     Text("Select a Date(s) You Want To Workout On")
                         .font(.system(size: 24, weight: .bold, design: .serif))
@@ -50,7 +50,7 @@ struct ContentView: View {
                         .frame(width: 90, height: 50)
                         .cornerRadius(15)
                     
-                    NavigationLink ("->") {
+                    NavigationLink ("Get Exercises") {
                         File()
                         }
                     .foregroundStyle(.white)
