@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct File: View {
-    @State var exercies: [String]  = ["PUSHUPS", "SQUATES","LUNGES","BENCH PRESSES","PULLUPS","CARDIO", "LATERAL RAISES", "DEADLIFTS", "HAMMER CURLS", "JUMMPING JACKS", "DUMBELL ROWS", "OVERHEAD PRESS", "BENT OVER ROWS"]
+    @State var exercies: [String]  = ["PUSHUPS", "SQUATES","LUNGES","BENCH PRESSES","PULLUPS", "LATERAL RAISES", "DEADLIFTS", "HAMMER CURLS", "JUMMPING JACKS", "DUMBELL ROWS", "OVERHEAD PRESS", "BENT OVER ROWS"]
     
-    @State var Edice10 = ["8","6","5","10","7","9","10","4"]
-    @State var Ndice15 = ["12","14","15","15","3","16","8","17","8","9","10","11","12","13","15","14"]
-    @State var Hdice35 = ["22","21","12","4","5","12","24","13","16","18","17","18","19","20","10","11","12","13","15","14","23","25","26","27,","28","29","34","31","32","35"]
-    @State var VHdice1055 = ["125","150","130","151", "101","130","130","155","50","63","126","73","68","73", "100","1055" ]
+    @State var Ndice17 = ["8","16","15","10","7","9","10","14","12","14","15","15","13","16","8","17","8","9","10","11","12","13","15","14"]
+    @State var Hdice35 = ["22","21","12","24","35","12","24","13","16","18","17","18","19","20","10","11","12","13","15","14","23","25","26","27,","28","29","34","31","32","35"]
+    @State var VHdice155 = ["125","150","130","151","89", "101","130","130","155","50","63","126","73","69","73", "100","234","109","210","87","52","69","67","67","68","54","69","69","105","149","123","87"]
     @State var dice = [""]
+
     var body: some View {
         ZStack {
             Color.cyan.ignoresSafeArea().background(Color.cyan.gradient);            VStack {
@@ -44,16 +44,14 @@ struct File: View {
             VStack{
                 Menu {
                     Button("easy"){
-                        dice = Edice10
+                        dice = Ndice17
                     }
-                    Button("Normal"){
-                        dice = Ndice15
-                    }
+                   
                     Button("Hard"){
                         dice = Hdice35
                     }
                     Button("Very Hard"){
-                        dice = VHdice1055
+                        dice = VHdice155
                     }
                 } label: {
                     Text("mode")
@@ -78,12 +76,21 @@ struct File: View {
                     .background(.white)
                     .cornerRadius(15)
                     .scaledToFit()
+                    .offset(x: 0, y: 100)
                     Text(dice.randomElement()!)
                         .foregroundStyle(.white)
                         .bold()
                         .font(.largeTitle)
+                        
                 }
                                 }
+           
+
+                }
+                      
+            }
+            
         }
-    }
-}
+
+
+
