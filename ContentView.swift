@@ -1,5 +1,4 @@
 import SwiftUI
-import DataDetection
 import UserNotifications
 
 struct ContentView: View {
@@ -47,8 +46,8 @@ struct ContentView: View {
                     
                     DatePicker ("", selection: $selectedTime, in: Date ()..., displayedComponents: [.hourAndMinute])
                         .background(.white)
-                        .frame(width: 90, height: 50)
-                        .cornerRadius(15)
+                        .frame(width: 90, height: 35)
+                        .cornerRadius(200)
                         
                         MultiDatePicker("Workout Date Selector", selection:
                                             $selectedDates, in: Date()...)

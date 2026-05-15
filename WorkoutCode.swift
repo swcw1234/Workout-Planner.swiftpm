@@ -14,19 +14,19 @@ struct AddWorkoutView: View {
             Color.cyan.ignoresSafeArea()
             VStack(spacing: 16) {
                 VStack {
-                    
-                    
                     DatePicker ("", selection: $selectedDate)
                     
                     TextField("Workout", text: $workout)
                     
                         .textFieldStyle(.roundedBorder)
                         .padding()
+                        .shadow(radius: 10)
                     
                     TextField("PR", text: $pr)
                     
                         .textFieldStyle(.roundedBorder)
                         .padding()
+                        .shadow(radius: 10)
                        
                     Button("Save PR")
                         {
@@ -55,7 +55,6 @@ struct AddWorkoutView: View {
                 .foregroundColor(.black)
                 
             }
-            
         }
         
     }
