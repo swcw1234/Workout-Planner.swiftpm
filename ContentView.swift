@@ -6,7 +6,6 @@ struct ContentView: View {
     @State private var selectedDates: Set<DateComponents> = []
     @State private var selectedTime = Date()
     func requestPermission() {
-        
         let WorkoutTime = selectedTime
         _ = selectedDates
         
