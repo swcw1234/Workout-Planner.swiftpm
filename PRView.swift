@@ -26,10 +26,22 @@ struct PRView: View {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             NavigationLink(destination: AddWorkoutView(assignments: $assignments)) {
                                 Label("Personal Record", systemImage: "plus")
-                            }
+                        
+                        }
+                            
                         }
                     }
                 }
+                NavigationLink ("Get Exercises") {
+                    File()
+                    }
+                .foregroundStyle(.white)
+                    .font(.largeTitle)
+                    .bold()
+                    .background(.blue)
+                    .cornerRadius(15)
+                    .scaledToFit()
+                    .shadow(radius: 15)
             }
         }
         .onAppear {

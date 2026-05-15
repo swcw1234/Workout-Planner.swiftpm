@@ -49,17 +49,6 @@ struct ContentView: View {
                         .background(.white)
                         .frame(width: 90, height: 50)
                         .cornerRadius(15)
-                    
-                    NavigationLink ("Get Exercises") {
-                        File()
-                        }
-                    .foregroundStyle(.white)
-                        .font(.largeTitle)
-                        .bold()
-                        .background(.blue)
-                        .cornerRadius(15)
-                        .scaledToFit()
-                        .shadow(radius: 15)
                         
                         MultiDatePicker("Workout Date Selector", selection:
                                             $selectedDates, in: Date()...)
