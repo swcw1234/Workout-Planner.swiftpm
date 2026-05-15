@@ -59,6 +59,7 @@ struct ContentView: View {
                         .background(.blue)
                         .cornerRadius(15)
                         .scaledToFit()
+                        .shadow(radius: 15)
                         
                         MultiDatePicker("Workout Date Selector", selection:
                                             $selectedDates, in: Date()...)
@@ -67,6 +68,7 @@ struct ContentView: View {
                         }
                         .background(.white)
                         .cornerRadius(15)
+                        .padding(2)
                         
                         
                         NavigationLink {
@@ -75,11 +77,14 @@ struct ContentView: View {
                             Label("Go To PR Records", systemImage: "square.and.arrow.down")
                                 .foregroundColor(.white)
                         }
+                        .font(.title)
                         .bold()
                         .background(.blue)
                         .cornerRadius(15)
                         .shadow(radius: 5)
-                        .frame(width: 250, height: 20)
+                        .frame(width: 300, height: 20)
+                        .shadow(radius: 10)
+                        .padding(10)
                         
                         Button ("Get Notfication Access") {
                             requestPermission()
@@ -87,6 +92,9 @@ struct ContentView: View {
                             print(selectedTime)
                         }
                         .buttonStyle(.borderedProminent)
+                        .cornerRadius(15)
+                        .frame(width: 250, height: 20)
+                        .padding(15)
                     }
                 }
             }
