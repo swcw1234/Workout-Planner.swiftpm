@@ -63,7 +63,7 @@ struct ContentView: View {
                         NavigationLink {
                             PRView ()
                         } label: {
-                            Label("Go To PR Records", systemImage: "square.and.arrow.down")
+                            Label("Go To PR Records", systemImage: "dumbbell.fill")
                                 .foregroundColor(.white)
                         }
                         .font(.title)
@@ -75,11 +75,10 @@ struct ContentView: View {
                         .shadow(radius: 10)
                         .padding(10)
                         
-                        Button ("Get Notfication Access") {
-                            requestPermission()
-                            print(selectedDates)
-                            print(selectedTime)
+                    Button (action: requestPermission) {
+                           Label ("Request Notfication", systemImage: "bell.fill")
                         }
+                    .font(.headline)
                         .buttonStyle(.borderedProminent)
                         .cornerRadius(15)
                         .frame(width: 250, height: 20)
