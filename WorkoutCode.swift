@@ -39,7 +39,7 @@ struct AddWorkoutView: View {
                         formatter.dateStyle = .short
                         formatter.timeStyle = .short
                         let dateTime = formatter.string(from: selectedDate)
-                            let newPR = "💪 - \(workout) : ⏱️ - \(pr)  💾 - \(weight) (\(dateTime))"
+                            let newPR = "💪 - \(workout) ⏱️ - \(pr)  💾 - \(weight) (🗓️ - \(dateTime))"
                             assignments.append(newPR)
                                
                         weight = ""
@@ -53,7 +53,6 @@ struct AddWorkoutView: View {
                         .cornerRadius(15)
                         .shadow(radius: 5)
                         .frame(width: 250, height: 20)
-                    
                     Spacer()
                 }
                 .navigationTitle("New Personal Record")
