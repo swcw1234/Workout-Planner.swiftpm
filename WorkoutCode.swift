@@ -7,6 +7,7 @@ struct AddWorkoutView: View {
     @Binding var assignments: [String]
     @State var workout = ""
     @State var pr = ""
+    @State var weight = ""
     @State private var selectedDate = Date()
     
     var body: some View {
@@ -28,15 +29,20 @@ struct AddWorkoutView: View {
                         .padding()
                         .shadow(radius: 10)
                        
+                    TextField("Weight (currently)", text: $weight)
+                        .textFieldStyle(.roundedBorder)
+                        .padding()
+                        .shadow(radius: 10)
                     Button("Save PR")
                         {
                         let formatter = DateFormatter()
                         formatter.dateStyle = .short
                         formatter.timeStyle = .short
                         let dateTime = formatter.string(from: selectedDate)
-                        let newPR = "\(workout): \(pr) (\(dateTime))"
-                        assignments.append(newPR)
-                                
+                            let newPR = "💪 - \(workout) : ⏱️ - \(pr)  💾 - \(weight) (\(dateTime))"
+                            assignments.append(newPR)
+                               
+                        weight = ""
                         workout = ""
                         pr = ""
                         selectedDate = Date()
@@ -59,3 +65,4 @@ struct AddWorkoutView: View {
         
     }
 }
+
