@@ -6,14 +6,11 @@ struct ContentView: View {
     @State private var selectedTime = Date()
     func requestPermission() {
         let WorkoutTime = selectedTime
-        _ = selectedDates
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             guard error == nil, granted else { return }
             
-            let timeComponents = Calendar.current.dateComponents([.hour, .minute], from: WorkoutTime)
-            _ = timeComponents.hour
-            _ = timeComponents.minute
+            _ = Calendar.current.dateComponents([.hour, .minute], from: WorkoutTime)
             func scheduleWeeklyReminder(weekday: Int, hour: Int, minute: Int) {
                 var components = DateComponents()
                 components.calendar = Calendar.current
@@ -47,7 +44,7 @@ struct ContentView: View {
                         .background(.white)
                         .frame(width: 90, height: 35)
                         .cornerRadius(200)
-                        
+                    
                         MultiDatePicker("Workout Date Selector", selection:
                                             $selectedDates, in: Date()...)
                         .onChange(of: selectedDates) { newValue in
@@ -81,6 +78,16 @@ struct ContentView: View {
                         .cornerRadius(15)
                         .frame(width: 250, height: 20)
                         .padding(15)
+                    
+                    Button(action:  clearCalendarAndNotifications) {
+                       Label ("Clear All Calander and Notfications ", systemImage: "trash.fill")
+                    }
+                    .font(.caption)
+                    .frame(width: 230, height: 25)
+                    .background(.red)
+                    .foregroundStyle(.white)
+                    .cornerRadius(15)
+                    .padding(-10)
                     }
                 }
             }
@@ -100,5 +107,11 @@ struct ContentView: View {
                 
             }
         }
+    
+    
+    private func clearCalendarAndNotifications() {
+        selectedDates.removeAll()
+        UserDefaults.standard.removeObject(forKey: "selectedDates")
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
-
+}
