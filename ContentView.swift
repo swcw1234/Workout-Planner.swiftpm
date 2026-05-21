@@ -35,6 +35,11 @@ struct ContentView: View {
             ZStack {
                 Color.cyan.ignoresSafeArea().background(Color.cyan.gradient)
                 VStack(spacing: 16) {
+                    Text ("Workout Planner")
+                        .font(.system(size:45, weight: .bold, design: .serif))
+                        .bold()
+                        .foregroundStyle(.white)
+                    
                     Text("Select a Date(s) You Want To Workout On")
                         .font(.system(size: 24, weight: .bold, design: .serif))
                         .fontWeight(.bold)
