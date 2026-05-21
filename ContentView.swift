@@ -44,9 +44,7 @@ struct ContentView: View {
                         .background(.white)
                         .frame(width: 90, height: 35)
                         .cornerRadius(200)
-                    
-                    Image ("JSP")
-                    
+                                        
                         MultiDatePicker("Workout Date Selector", selection:
                                             $selectedDates, in: Date()...)
                         .onChange(of: selectedDates) { newValue in

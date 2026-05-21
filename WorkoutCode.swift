@@ -1,7 +1,6 @@
 import SwiftUI
 import UserNotifications
 
-
 struct AddWorkoutView: View {
     
     @Binding var assignments: [String]
@@ -28,7 +27,7 @@ struct AddWorkoutView: View {
                         .textFieldStyle(.roundedBorder)
                         .padding()
                         .shadow(radius: 10)
-                       
+                    
                     TextField("Weight (currently)", text: $weight)
                         .textFieldStyle(.roundedBorder)
                         .padding()
@@ -54,6 +53,18 @@ struct AddWorkoutView: View {
                         .shadow(radius: 5)
                         .frame(width: 250, height: 20)
                     Spacer()
+                    
+                    //Gonna Come Back To This
+                    
+                  //  func imagePicker(_: UIImagePickerController, `var` newImage: UIImage) {
+                      //  if let possibleImage = info[.editedImage] as? UIImage {
+                      //      newImage = possibleImage
+                      //  } else if let possibleImage = info[.originalImage] as? UIImage {
+                       //     newImage = possibleImage
+                     //   } else {
+                       // }
+                  //  }
+                    }
                 }
                 .navigationTitle("New Personal Record")
                 .font(.system(size: 24, weight: .bold, design: .serif))
@@ -63,5 +74,4 @@ struct AddWorkoutView: View {
         }
         
     }
-}
 

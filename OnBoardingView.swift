@@ -6,19 +6,35 @@ struct OnBoardingView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                TabView {
-                    OnBoardingPage(title: "Welcome To Workout Planner", subtitle: "Plan and track your workouts", image: "dumbbell")
-                    OnBoardingPage(title: "Plan Your Routine", subtitle: "Set Notfications For When You Want To Workout", image: "bell")
-                    OnBoardingPage(title: "Stay Motivated", subtitle: "Set New PRs", image: "chart.line.uptrend.xyaxis")
+            ZStack {
+                VStack {
+                    TabView {
+                        OnBoardingPage(title: "Welcome To Workout Planner", subtitle: "Plan and track your workouts", image: "dumbbell")
+                            .foregroundStyle(.black)
+                            .bold()
+                        
+                        OnBoardingPage(title: "Plan Your Routine", subtitle: "Set Notfications For When You Want To Workout", image: "bell")
+                            .foregroundStyle(.black)
+                            .bold()
+                        
+                        OnBoardingPage(title: "Stay Motivated", subtitle: "Set New PRs", image: "chart.line.uptrend.xyaxis")
+                            .foregroundStyle(.black)
+                            .bold()
+                        
+                        }
+                    Button("Let's Go!") {
+                        hasSeenOnboarding = true
+                        showMain = true
+                    }
+                    .background(.blue)
+                    .cornerRadius(15)
                 }
                 .tabViewStyle(.page)
-                
-                Button("Let's Go!") {
-                    hasSeenOnboarding = true
-                    showMain = true
-                }
                 .buttonStyle(.bordered)
+                .foregroundStyle(.white)
+                .cornerRadius(15)
+                .padding(-5)
+                
             }
             .navigationBarBackButtonHidden(true)
         }
