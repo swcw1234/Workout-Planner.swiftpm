@@ -7,6 +7,7 @@ struct OnBoardingView: View {
     var body: some View {
         NavigationStack {
             ZStack {
+                Color.cyan.ignoresSafeArea().background(Color.blue.gradient)
                 VStack {
                     TabView {
                         OnBoardingPage(title: "Welcome To Workout Planner", subtitle: "Plan and track your workouts", image: "dumbbell")
