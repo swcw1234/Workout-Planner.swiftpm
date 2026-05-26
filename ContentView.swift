@@ -40,7 +40,7 @@ struct ContentView: View {
                         .bold()
                         .foregroundStyle(.white)
                     
-                    Text("Select a Date(s) You Want To Workout On")
+                    Text("Select The Date(s) You Want To Workout On")
                         .font(.system(size: 24, weight: .bold, design: .serif))
                         .fontWeight(.bold)
                         .foregroundStyle(.white)
@@ -87,8 +87,7 @@ struct ContentView: View {
                     Button(action:  clearCalendarAndNotifications) {
                        Label ("Clear All Calander and Notfications ", systemImage: "trash.fill")
                     }
-                    .font(.caption)
-                    .frame(width: 230, height: 25)
+                    .font(.system(size: 12)) .frame(width: 230, height: 25)
                     .background(.red)
                     .foregroundStyle(.white)
                     .cornerRadius(15)
