@@ -68,7 +68,7 @@ struct File: View {
                 .font(.headline)
                 
                 if dice != [""]{
-                    Button("Sets"){
+                    Button("Reps"){
                         dice.shuffle()
                     }
                     .foregroundStyle(.blue)
