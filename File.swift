@@ -39,8 +39,11 @@ struct File: View {
                     .foregroundStyle(.white)
                     .bold()
                     .font(.largeTitle)
+                    .padding()
                 
                 Menu {
+                    Color.cyan.ignoresSafeArea().background(Color.cyan.gradient)
+                    
                     Button("Easy"){
                         dice = Ndice17
                     }
@@ -60,7 +63,7 @@ struct File: View {
                 .background(.blue)
                 .cornerRadius(15)
                 .scaledToFit()
-                
+                .padding(7)
                 
                 .font(.headline)
                 
@@ -85,8 +88,11 @@ struct File: View {
             Spacer()
         }
         VStack{
-               
             Text("Types of exercises")
+                .font(.system(size: 24, weight: .bold, design: .serif))
+                .fontWeight(.bold)
+                .foregroundStyle(.black)
+            
             List(exercies, id: \.self){ lol in
                 Text(lol)
 
@@ -96,10 +102,5 @@ struct File: View {
         }
         
     }
-    
-    
-    
-    
-    
 }
 
