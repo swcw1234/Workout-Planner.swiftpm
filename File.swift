@@ -39,8 +39,8 @@ struct File: View {
                     .foregroundStyle(.white)
                     .bold()
                     .font(.largeTitle)
-                List(dice, id: \.self){
-                    Text($0)
+                List(dice, id: \.self){ lol in
+                    Text(lol)
                 }
                 Spacer()
             }
