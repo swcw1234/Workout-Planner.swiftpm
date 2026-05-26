@@ -14,7 +14,17 @@ struct AddWorkoutView: View {
             Color.cyan.ignoresSafeArea()
             VStack(spacing: 16) {
                 VStack {
+                    
+                    Text ("New Personal Record")
+                        .font(.system(size: 30, weight: .bold, design: .serif))
+                        .foregroundStyle(.white)
+                    
                     DatePicker ("", selection: $selectedDate)
+                        .background(.white)
+                        .cornerRadius(15)
+                        .scaledToFit()
+                        .padding(-20)
+                        .frame(width: 50, height: 30)
                     
                     TextField("Workout", text: $workout)
                     
@@ -53,20 +63,8 @@ struct AddWorkoutView: View {
                         .shadow(radius: 5)
                         .frame(width: 250, height: 20)
                     Spacer()
-                    
-                    //Gonna Come Back To This
-                    
-                  //  func imagePicker(_: UIImagePickerController, `var` newImage: UIImage) {
-                      //  if let possibleImage = info[.editedImage] as? UIImage {
-                      //      newImage = possibleImage
-                      //  } else if let possibleImage = info[.originalImage] as? UIImage {
-                       //     newImage = possibleImage
-                     //   } else {
-                       // }
-                  //  }
                     }
                 }
-                .navigationTitle("New Personal Record")
                 .font(.system(size: 24, weight: .bold, design: .serif))
                 .foregroundColor(.black)
                 

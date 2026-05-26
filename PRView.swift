@@ -25,13 +25,13 @@ struct PRView: View {
                         }
                         ToolbarItem(placement: .navigationBarTrailing) {
                             NavigationLink(destination: AddWorkoutView(assignments: $assignments)) {
-                                Label("Personal Record", systemImage: "plus")
-                        
-                        }
-                            
+                                Label("Personal Record", systemImage: "plus.circle")
+                                
+                            }
                         }
                     }
                 }
+                
                 NavigationLink ("Get Exercises") {
                     File()
                     }
