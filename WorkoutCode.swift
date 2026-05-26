@@ -8,8 +8,8 @@ struct AddWorkoutView: View {
     @State var pr = ""
     @State var weight = ""
     @State private var selectedDate = Date()
-    
-    var body: some View {
+    @State var comments: [String]  = [ "Youre Doing Great!", "Keep Up The Great Work!", "Don't Give Up Now!", "Keep Going!", "Lets Get It"
+    ];    var body: some View {
         ZStack {
             Color.cyan.ignoresSafeArea()
             VStack(spacing: 16) {
@@ -43,33 +43,43 @@ struct AddWorkoutView: View {
                         .padding()
                         .shadow(radius: 10)
                     Button("Save PR")
-                        {
+                    {
                         let formatter = DateFormatter()
                         formatter.dateStyle = .short
                         formatter.timeStyle = .short
                         let dateTime = formatter.string(from: selectedDate)
-                            let newPR = "💪 - \(workout) ⏱️ - \(pr)  💾 - \(weight) (🗓️ - \(dateTime))"
-                            assignments.append(newPR)
-                               
+                        let newPR = "💪 - \(workout) ⏱️ - \(pr)  💾 - \(weight) (🗓️ - \(dateTime))"
+                        assignments.append(newPR)
+                        
                         weight = ""
                         workout = ""
                         pr = ""
                         selectedDate = Date()
                     }
-                        .foregroundStyle(Color.white)
-                        .bold()
-                        .background(.blue)
-                        .cornerRadius(15)
-                        .shadow(radius: 5)
-                        .frame(width: 250, height: 20)
+                    .foregroundStyle(Color.white)
+                    .bold()
+                    .background(.blue)
+                    .cornerRadius(15)
+                    .shadow(radius: 5)
+                    .frame(width: 250, height: 20)
                     Spacer()
-                    }
                 }
-                .font(.system(size: 24, weight: .bold, design: .serif))
-                .foregroundColor(.black)
+            }
+            .font(.system(size: 24, weight: .bold, design: .serif))
+            .foregroundColor(.black)
+            
+        }
+        ZStack {
+            Color.cyan.ignoresSafeArea().background(Color.cyan.gradient)
+            VStack {
+                Color.cyan.ignoresSafeArea()
                 
+                Text(comments.randomElement()!)
+                    .foregroundStyle(.white)
+                    .bold()
+                    .font(.largeTitle)
+                    .padding()
             }
         }
-        
     }
-
+}
