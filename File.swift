@@ -84,13 +84,13 @@ struct File: View {
             }
             Spacer()
         }
-        VStack{
+        
                
             Text("Types of exercises")
             List(exercies, id: \.self){ lol in
                 Text(lol)
 
-            }
+            
         
            
         }
