@@ -39,6 +39,9 @@ struct File: View {
                     .foregroundStyle(.white)
                     .bold()
                     .font(.largeTitle)
+                List(dice, id: \.self){
+                    Text($0)
+                }
                 Spacer()
             }
             VStack{
