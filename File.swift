@@ -40,11 +40,6 @@ struct File: View {
                     .bold()
                     .font(.largeTitle)
                 
-                
-            }
-            Spacer()
-        }
-        VStack{
                 Menu {
                     Button("Easy"){
                         dice = Ndice17
@@ -81,11 +76,16 @@ struct File: View {
                     .scaledToFit()
 
                     Text(dice.randomElement()!)
-                        .foregroundStyle(.white)
+                        .foregroundStyle(.blue)
                         .bold()
                         .font(.largeTitle)
                     
                 }
+            }
+            Spacer()
+        }
+        VStack{
+               
             Text("Types of exercises")
             List(exercies, id: \.self){ lol in
                 Text(lol)
